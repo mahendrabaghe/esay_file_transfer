@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: quickdrop
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: NODE_ENV
+        value: production
+      - key: SERVE_CLIENT
+        value: true
+      - key: SESSION_TTL_MINUTES
+        value: 30
+      - key: FILE_RETENTION_MINUTES
+        value: 60
+      - key: MAX_FILE_SIZE_MB
+        value: 2048
+      - key: MAX_SESSION_SIZE_MB
+        value: 5120
+      - key: RATE_LIMIT_SESSION_PER_HOUR
+        value: 30
