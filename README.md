@@ -4,6 +4,11 @@ Private, instant file sharing between any two devices. Open a drop on the laptop
 
 No app install. No account. No permanent cloud copy.
 
+> **Live app:** deploy the included Render Blueprint with one click.  
+> **GitHub Pages cannot host QuickDrop** because it only serves static files; the live app needs the Node/Socket.IO server in this repository.
+>
+> [Deploy QuickDrop to Render](https://render.com/deploy?repo=https://github.com/mahendrabaghe/esay_file_transfer)
+
 ## Highlights
 
 - One click opens a live receiving session with a scannable QR code, session ID, expiry timer, and connection status.
@@ -106,9 +111,15 @@ Rebuild the client after changing this value, then open the receiver from the la
 
 ## Deployment
 
+### GitHub Pages is not supported
+
+GitHub Pages is a static file host. It displays this README at the repository URL because QuickDrop has no static root `index.html`, and it cannot run uploads, session storage, downloads, or Socket.IO. Use Render for the full application.
+
 ### Render (one service, recommended)
 
-The repository includes [`render.yaml`](render.yaml). Create a new Blueprint from the repo, or configure a Web Service manually:
+The repository includes [`render.yaml`](render.yaml). The fastest path is the [one-click Blueprint deploy](https://render.com/deploy?repo=https://github.com/mahendrabaghe/esay_file_transfer). Sign in with GitHub, keep the detected `quickdrop` service, and apply the Blueprint. Render builds the client and starts the Node server on the free plan.
+
+To configure it manually, create a Web Service from the repo:
 
 - **Build command:** `npm ci --include=dev && npm run build`
 - **Start command:** `npm start`
