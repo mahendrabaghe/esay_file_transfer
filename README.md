@@ -225,3 +225,5 @@ Automated tests (`npm test`) cover session isolation, realtime notes/links, resu
 - HEIC/HEIF uploads are accepted as images but browser preview support varies by platform.
 - iOS Safari may require a tap to start a download; the UI surfaces individual and download-all options for that reason.
 - Files are removed automatically, but no system can guarantee deletion from backups, swap, or infrastructure logs. Run on a host you control if that matters.
+#   a a d  
+ 
